@@ -1,14 +1,14 @@
 {
-    "name": "freex",
-    "scripts": {
-        "build:front": "cd front && npm install && npm run build",
-        "build:server": "cd server && npm install && npm run build",
-        "build": "npm run build:front && npm run build:server",
-        "start:front": "cd front && npm run start",
-        "start:server": "cd server && npm run start",
-        "start:prod": "npm run build && concurrently \"npm run start:front\" \"npm run start:server\""
-      },
-    "dependencies": {
-      "concurrently": "^7.0.0"
-    }
+  "name": "freex",
+  "scripts": {
+    "build:front": "cd front && npm install && npm run build",
+    "build:server": "cd server && npm install && npm run build",
+    "build": "concurrently \"npm run build:front\" && \"npm run build:server\"",
+    "start:front": "cd front && npm run start",
+    "start:server": "cd server && npm run start",
+    "start:prod": "concurrently \"npm run start:front\" \"npm run start:server\""
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0"
   }
+}
