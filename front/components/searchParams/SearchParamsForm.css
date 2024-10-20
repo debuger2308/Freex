@@ -1,0 +1,116 @@
+.searh-p-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    color: var(--foreground);
+}
+
+.searh-p-form input {
+    color: var(--foreground);
+}
+
+.gender-wrapper {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.gender__svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--foreground);
+    transition: all .3s;
+    background-color: none;
+}
+
+.gender__svg--active {
+    fill: var(--maincolor);
+    animation: .3s linear 0s none gender-rotate;
+}
+
+@keyframes gender-rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    33% {
+        transform: rotate(45deg);
+    }
+
+    66% {
+        transform: rotate(-45deg);
+    }
+
+    to {
+        transform: rotate(-0deg);
+    }
+}
+
+.gender__input {
+    display: none;
+
+}
+
+
+
+.gender__label {
+    transition: all .3s;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 24px;
+}
+
+.gender__label:hover {
+    color: var(--additional);
+}
+
+
+.userdata__form-btn {
+    color: var(--foreground);
+    margin-top: 20px;
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: unset;
+    border: 3px solid var(--shadowcolor);
+    transition: all .3s;
+}
+
+.userdata__form-btn--activated {
+    color: var(--maincolor);
+    background-color: var(--background);
+    border: 3px solid var(--additional);
+}
+
+
+.userdata__form-btn:disabled {
+    transition: none;
+    background-color: var(--shadowcolor);
+}
+
+.userdata__form-btn:disabled:hover {
+    border: 3px solid var(--foreground);
+    background-color: var(--shadowcolor);
+    color: var(--foreground);
+}
+
+.userdata__form-btn:hover {
+    border: 3px solid var(--maincolor);
+    background-color: var(--foreground);
+    color: var(--background);
+}
+
+.userdata__form-btn--activated:hover {
+    color: var(--maincolor);
+    background-color: #000000;
+    color: var(--maincolor);
+}
+
+.userdata__form-btn--activated:hover {
+    border: 3px solid var(--additional);
+}

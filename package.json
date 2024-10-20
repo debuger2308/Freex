@@ -1,0 +1,14 @@
+{
+    "name": "freex",
+    "scripts": {
+        "build:frontend": "cd frontend && npm install && npm run build",
+        "build:backend": "cd backend && npm install && npm run build",
+        "build": "npm run build:frontend && npm run build:backend",
+        "start:frontend": "cd frontend && npm run start",
+        "start:backend": "cd backend && npm run start",
+        "start:prod": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
+      },
+    "dependencies": {
+      "concurrently": "^7.0.0"
+    }
+  }

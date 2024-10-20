@@ -1,0 +1,95 @@
+:root {
+    --background: #dcdcdc;
+    --foreground: #000000;
+    --shadowcolor: #5c5c5c;
+    --maincolor: #8f3efa;
+    --additional: #b6c744fd;
+    --error: brown;
+}
+
+[data-theme='dark'] {
+    --background: #000000;
+    --foreground: #ebebeb;
+    --shadowcolor: #313131;
+    --maincolor: #8f3efa;
+    --additional: #e7fd58fd;
+    --error: brown;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+button{
+    color: var(--foreground);
+}   
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    flex-grow: 1;
+
+}
+
+
+button{
+    white-space: nowrap;
+}
+
+.input-field {
+    position: relative;
+}
+
+.input-label {
+    font-weight: 600;
+    color: var(--shadowcolor);
+    position: absolute;
+    left: 15px;
+    top: -14px;
+    font-size: 20px;
+    transition: .2s;
+    cursor: text;
+    user-select: none;
+}
+
+.input {
+    width: 300px;
+    font-size: 24px;
+    padding: 5px;
+    background: none;
+    border-bottom: 1px dashed var(--shadowcolor);
+}
+
+.input:placeholder-shown~.input-label {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.input:focus~.input-label {
+    left: 15px;
+    top: -14px;
+    transform: none;
+    font-size: 20px;
+    color: var(--maincolor);
+}
+
+
+.input:focus {
+    border-bottom: 1px dashed var(--maincolor);
+}

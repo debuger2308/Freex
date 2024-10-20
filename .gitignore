@@ -1,0 +1,69 @@
+front/node_modules
+front/.pnp
+front/.pnp.js
+front/.yarn/install-state.gz
+
+# testing
+front//coverage
+
+# next.js
+front/.next/
+front/out/
+
+# production
+front//build
+
+# misc
+front/.DS_Store
+front/*.pem
+
+# debug
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*
+
+# local env files
+front/.env*.local
+
+# vercel
+front/*.tsbuildinfo
+front/next-env.d.ts
+
+
+server/dist
+server/node_modules
+
+server/# Logs
+server/logs
+server/*.log
+server/npm-debug.log*
+server/pnpm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
+server/lerna-debug.log*
+
+server/# OS
+server/.DS_Store
+
+server/# Tests
+server/coverage
+server/.nyc_output
+
+server/# IDEs and editors
+server/.idea
+server/.project
+server/.classpath
+server/.c9/
+server/*.launch
+server/.settings/
+server/*.sublime-workspace
+
+server/# IDE - VSCode
+server/.vscode/*
+server/!.vscode/settings.json
+server/!.vscode/tasks.json
+server/!.vscode/launch.json
+server/!.vscode/extensions.json
+server/.dev.env
+
+node_modules
