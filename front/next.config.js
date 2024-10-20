@@ -3,5 +3,13 @@ const nextConfig = {}
 
 module.exports = nextConfig
 module.exports = {
-    reactStrictMode: false, // Отключаем Strict Mode
-  };
+  reactStrictMode: false,
+  async rewrites() {
+    return [
+      {
+        source: '/backend/:path*',
+        destination: 'http://localhost:8081/:path*',
+      },
+    ];
+  },
+};
