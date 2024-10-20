@@ -4,14 +4,14 @@ front/.pnp.js
 front/.yarn/install-state.gz
 
 # testing
-front//coverage
+front/coverage
 
 # next.js
 front/.next/
 front/out/
 
 # production
-front//build
+front/build
 
 # misc
 front/.DS_Store
