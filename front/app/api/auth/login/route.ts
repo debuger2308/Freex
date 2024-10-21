@@ -14,21 +14,22 @@ export async function POST(req: NextRequest,) {
             "Content-type": "application/json",
         },
         credentials: "include",
-        mode: 'cors'
     })
     if (res?.status === 401 || res?.status === 406) {
-        return new Response("Created", {
+        return new Response("UnAthorized", {
             status: res?.status,
+
         })
     }
     else if (res?.status === 201) {
         const json: IAuthInfo = await res?.json()
         cookies().set('auth-info', JSON.stringify(json), { maxAge: 1000 * 60 })
         return new Response("Created", {
-            status: 201,
+            status: res.status,
+            headers: { 'Set-Cookie': res.headers.get('set-cookie') || '' }
         })
     }
 
+    return new Response("Something went wrong", { status: 500 })
 
-   
 }

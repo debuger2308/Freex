@@ -50,9 +50,7 @@ const Auth = () => {
                             setAuthErros('Wrong nickname or password')
                         }
                         else if (res?.status === 201) {
-                            const json = await res?.json()
-                            const apiResponse = await nextApiLogin(json)
-                            if (apiResponse.status === 201) router.refresh()
+                            router.refresh()
                         }
                         setIsDataLoading(false)
                     }}
