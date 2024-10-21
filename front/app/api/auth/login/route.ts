@@ -23,7 +23,7 @@ export async function POST(req: NextRequest,) {
         })
     }
     else if (res?.status === 201) {
-        const token: string = await res?.json()
+        const { token }: { token: string } = await res?.json()
         cookies().set('auth-info', JSON.stringify({
             isAuth: true,
             token: token,
