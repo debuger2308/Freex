@@ -3,6 +3,7 @@ import { cookies } from 'next/headers'
 import { IAuthInfo } from '@/interfaces/IAuthInfo'
 import { NextRequest } from 'next/server';
 import { IUserCredentials } from '@/interfaces/IUserCredentials';
+import { jwtDecode } from 'jwt-decode';
 
 export async function POST(req: NextRequest,) {
 
@@ -22,8 +23,12 @@ export async function POST(req: NextRequest,) {
         })
     }
     else if (res?.status === 201) {
-        const json: IAuthInfo = await res?.json()
-        cookies().set('auth-info', JSON.stringify(json), { maxAge: 1000 * 60 })
+        const token: string = await res?.json()
+        cookies().set('auth-info', JSON.stringify({
+            isAuth: true,
+            token: token,
+            userdata: jwtDecode(token),
+        }), { maxAge: 1000 * 60 })
         return new Response("Created", {
             status: res.status,
             headers: { 'Set-Cookie': res.headers.get('set-cookie') || '' }
