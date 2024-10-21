@@ -16,6 +16,7 @@ export async function POST(req: NextRequest,) {
         },
         credentials: "include",
     })
+    console.log(res.status);
     if (res?.status === 401 || res?.status === 406) {
         return new Response("UnAthorized", {
             status: res?.status,
@@ -31,7 +32,7 @@ export async function POST(req: NextRequest,) {
         }), { maxAge: 1000 * 60 })
         return new Response("Created", {
             status: res.status,
-            headers: { 'Set-Cookie': res.headers.get('set-cookie') || '' }
+            headers: { 'Set-Cookie': res.headers.get('Set-Cookie') || '' }
         })
     }
 
