@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { IAuthInfo } from '@/interfaces/IAuthInfo'
 import { NextRequest } from 'next/server';
 import { IUserCredentials } from '@/interfaces/IUserCredentials';
-import { jwtDecode } from 'jwt-decode';
+
 
 export async function POST(req: NextRequest,) {
 
@@ -16,7 +16,6 @@ export async function POST(req: NextRequest,) {
         },
         credentials: "include",
     })
-    console.log(res.status);
     if (res?.status === 401 || res?.status === 406) {
         return new Response("UnAthorized", {
             status: res?.status,
@@ -28,7 +27,6 @@ export async function POST(req: NextRequest,) {
         cookies().set('auth-info', JSON.stringify({
             isAuth: true,
             token: token,
-            userdata: jwtDecode(token),
         }), { maxAge: 1000 * 60 })
         return new Response("Created", {
             status: res.status,
