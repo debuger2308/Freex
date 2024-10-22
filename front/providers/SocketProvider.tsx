@@ -12,20 +12,23 @@ const SocketContext = createContext<SocketContextType | undefined>(undefined);
 interface SocketProviderProps {
     children: ReactNode;
     session: { isAuth: boolean, token: string } | null
+    newSocket: Socket | null
 }
 
 
-export const SocketProvider = ({ children, session }: SocketProviderProps) => {
+export const SocketProvider = ({ children, session, newSocket }: SocketProviderProps) => {
     const [socket, setSocket] = useState<Socket | null>(null);
 
     useEffect(() => {
-        const newSocket = io(process.env.NEXT_PUBLIC_API_URL || ''); 
-        setSocket(newSocket);
+        if (newSocket) {
+            setSocket(newSocket);
 
-        return () => {
-            newSocket.close();
-        };
-    }, [session]);
+            return () => {
+                newSocket.close();
+            };
+        }
+
+    }, [session, socket]);
 
     return (
         <SocketContext.Provider value={{ socket }}>

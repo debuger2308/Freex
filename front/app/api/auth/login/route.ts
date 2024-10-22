@@ -30,7 +30,6 @@ export async function POST(req: NextRequest,) {
         }), { maxAge: 1000 * 60 })
         return new Response("Created", {
             status: res.status,
-            headers: { 'Set-Cookie': res.headers.get('Set-Cookie') || '' }
         })
     }
 

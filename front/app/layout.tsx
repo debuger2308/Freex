@@ -11,6 +11,7 @@ import { SocketProvider } from '@/providers/SocketProvider'
 import { IAuthInfo } from '@/interfaces/IAuthInfo'
 import { refreshToken } from '@/functions/api/api'
 import { usePathname } from 'next/navigation'
+import { io } from 'socket.io-client'
 
 
 
@@ -31,13 +32,13 @@ export default async function RootLayout({
 
 	const cookie = cookies().get('auth-info') || null
 	const session: IAuthInfo | null = JSON.parse(cookie?.value || '{}') || null
-	
+	const newSocket = io(process.env.NEXT_PUBLIC_API_URL || '');
 
 	return (
 		<html lang="en">
 			<body className={inter.className}>
 				<ColorTheme>
-					<SocketProvider session={session}>
+					<SocketProvider session={session} newSocket={newSocket}>
 						<div className="wrapper">
 							<Header session={session} />
 							{children}
